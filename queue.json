@@ -2,14 +2,6 @@
   "_note": "posted=false を上から順にクラウドが自動投稿。新規はMacの stage_post.py で追記&push。files はこのリポ内の相対パス。type=carousel/reel/image。",
   "posts": [
     {
-      "id": "smoketest",
-      "type": "image",
-      "subdir": "post01",
-      "files": ["media/post01/p1_01.png"],
-      "caption": "(cloud dry-run smoke test — not published)",
-      "posted": false
-    },
-    {
       "id": "post01",
       "type": "carousel",
       "subdir": "post01",
