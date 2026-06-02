@@ -6,14 +6,34 @@
       "type": "carousel",
       "subdir": "post01",
       "files": [
-        "media/post01/p1_01.png", "media/post01/p1_02.png", "media/post01/p1_03.png",
-        "media/post01/p1_04.png", "media/post01/p1_05.png", "media/post01/p1_06.png",
+        "media/post01/p1_01.png",
+        "media/post01/p1_02.png",
+        "media/post01/p1_03.png",
+        "media/post01/p1_04.png",
+        "media/post01/p1_05.png",
+        "media/post01/p1_06.png",
         "media/post01/p1_07.png"
       ],
       "caption": "学歴も年齢も関係ない／営業力が最強",
       "posted": true,
       "published_at": "2026-06-02",
       "_published_via": "manual (前セッション)"
+    },
+    {
+      "id": "post02",
+      "type": "carousel",
+      "subdir": "post02",
+      "files": [
+        "media/post02/p2_01.png",
+        "media/post02/p2_02.png",
+        "media/post02/p2_03.png",
+        "media/post02/p2_04.png",
+        "media/post02/p2_05.png",
+        "media/post02/p2_06.png",
+        "media/post02/p2_07.png"
+      ],
+      "caption": "「訪問営業ってきついよね?」——20歳の社長が、ぜんぶ正直に答えます。\n\n正直、最初は断られる。でも“断られ慣れ”は就活も商談も起業も効く一生モノの武器。トークは才能じゃなく型と量。歩合だからやった分だけ返る。そして1人で抱えず、チームで詰める。\n\n📍関東／光回線の訪問営業インターン（長期・歩合）\n🎓学歴・年齢・経験 不問／大学生〜フリーター歓迎\n💬まずは話を聞くだけでもOK\n\n応募・質問はプロフィールのLINEから👆\n\n#長期インターン #営業 #就活 #大学生と繋がりたい #ガクチカ #25卒 #26卒 #フリーター #第二新卒 #営業インターン #関東 #インターン募集 #キャリア #自己成長",
+      "posted": false
     }
   ]
 }
