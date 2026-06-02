@@ -1,9 +1,10 @@
 name: Auto post to Instagram
 
-# 週3：月・水・金 19:00 JST（= 10:00 UTC）。手動実行(dry-run可)も可能。
+# 週5：月〜金 19:00 JST（= 10:00 UTC）。手動実行(dry-run可)も可能。
+# 成長重視でReels中心に増量。キューが尽きたら no-op。
 on:
   schedule:
-    - cron: "0 10 * * 1,3,5"
+    - cron: "0 10 * * 1-5"
   workflow_dispatch:
     inputs:
       dry_run:

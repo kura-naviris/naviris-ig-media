@@ -1,0 +1,30 @@
+name: Track follower growth
+
+# 毎日 22:00 JST（= 13:00 UTC）にフォロワー数を記録 → growth.csv
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Snapshot follower count
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python3 track_followers.py
+      - name: Commit growth.csv
+        run: |
+          git config user.name "naviris-bot"
+          git config user.email "naviris-bot@users.noreply.github.com"
+          if ! git diff --quiet -- growth.csv; then
+            git add growth.csv
+            git commit -m "track: follower snapshot [skip ci]"
+            git push
+          fi
