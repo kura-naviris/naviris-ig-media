@@ -23,8 +23,8 @@ jobs:
         run: |
           git config user.name "naviris-bot"
           git config user.email "naviris-bot@users.noreply.github.com"
-          if ! git diff --quiet -- growth.csv; then
-            git add growth.csv
+          git add growth.csv
+          if ! git diff --cached --quiet; then
             git commit -m "track: follower snapshot [skip ci]"
             git push
           fi
