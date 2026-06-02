@@ -1,0 +1,19 @@
+{
+  "_note": "posted=false を上から順にクラウドが自動投稿。新規はMacの stage_post.py で追記&push。files はこのリポ内の相対パス。type=carousel/reel/image。",
+  "posts": [
+    {
+      "id": "post01",
+      "type": "carousel",
+      "subdir": "post01",
+      "files": [
+        "media/post01/p1_01.png", "media/post01/p1_02.png", "media/post01/p1_03.png",
+        "media/post01/p1_04.png", "media/post01/p1_05.png", "media/post01/p1_06.png",
+        "media/post01/p1_07.png"
+      ],
+      "caption": "学歴も年齢も関係ない／営業力が最強",
+      "posted": true,
+      "published_at": "2026-06-02",
+      "_published_via": "manual (前セッション)"
+    }
+  ]
+}
