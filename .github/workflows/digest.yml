@@ -1,0 +1,27 @@
+name: Weekly growth digest
+
+# 毎週日曜 21:00 JST（= 12:00 UTC）に週次レポートを生成
+on:
+  schedule:
+    - cron: "0 12 * * 0"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build weekly report
+        run: python3 weekly_report.py
+      - name: Commit report
+        run: |
+          git config user.name "naviris-bot"
+          git config user.email "naviris-bot@users.noreply.github.com"
+          git add weekly_report.md
+          if ! git diff --cached --quiet; then
+            git commit -m "weekly digest [skip ci]"
+            git push
+          fi
