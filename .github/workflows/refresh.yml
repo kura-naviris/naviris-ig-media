@@ -1,0 +1,49 @@
+name: Refresh IG token (cloud)
+
+# 毎月1日 03:00 UTC にトークンを更新（+60日）。Mac不要。
+# トークンは token.enc（AES暗号・鍵は secret IG_ENC_KEY）に保存。
+# 初回は IG_ACCESS_TOKEN secret から token.enc を生成（ブートストラップ）。
+on:
+  schedule:
+    - cron: "0 3 1 * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh & re-encrypt token
+        env:
+          IG_ENC_KEY: ${{ secrets.IG_ENC_KEY }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          set -e
+          if [ -f token.enc ]; then
+            TOK=$(openssl enc -d -aes-256-cbc -pbkdf2 -a -pass env:IG_ENC_KEY -in token.enc)
+          else
+            echo "bootstrap from secret"
+            TOK="$IG_ACCESS_TOKEN"
+          fi
+          RESP=$(curl -s "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=$TOK")
+          NEW=$(echo "$RESP" | jq -r '.access_token // empty')
+          DAYS=$(echo "$RESP" | jq -r '(.expires_in // 0)/86400 | floor')
+          if [ -z "$NEW" ]; then
+            echo "refresh returned no token (likely <24h old); keeping current. resp: $RESP"
+            NEW="$TOK"
+          else
+            echo "refreshed; expires in ~${DAYS} days"
+          fi
+          printf '%s' "$NEW" | openssl enc -aes-256-cbc -pbkdf2 -a -salt -pass env:IG_ENC_KEY -out token.enc
+      - name: Commit token.enc
+        run: |
+          git config user.name "naviris-bot"
+          git config user.email "naviris-bot@users.noreply.github.com"
+          git add token.enc
+          if ! git diff --cached --quiet; then
+            git commit -m "refresh: token [skip ci]"
+            git push
+          fi
