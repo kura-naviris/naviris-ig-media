@@ -25,9 +25,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Decrypt token
+        env:
+          IG_ENC_KEY: ${{ secrets.IG_ENC_KEY }}
+        run: echo "IG_ACCESS_TOKEN=$(openssl enc -d -aes-256-cbc -pbkdf2 -a -pass env:IG_ENC_KEY -in token.enc)" >> "$GITHUB_ENV"
+
       - name: Publish next pending post
         env:
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
         run: python3 post_runner.py
