@@ -1,4 +1,4 @@
-# Naviris IG 週次レポート (2026-06-03 UTC)
+# Naviris IG 週次レポート (2026-06-07 UTC)
 
 ## フォロワー
 - 現在: **0**
@@ -11,11 +11,12 @@
 | 1 | VIDEO | 1 | https://www.instagram.com/reel/DZFsHZDRyum/ |
 | 2 | CAROUSEL_ALBUM | 0 | https://www.instagram.com/p/DZFkIGmkUs4/ |
 | 3 | CAROUSEL_ALBUM | 0 | https://www.instagram.com/p/DZFT659lCAK/ |
+| 4 | CAROUSEL_ALBUM | 0 | https://www.instagram.com/p/DZNSkz7EQuL/ |
 
 ## タイプ別 平均エンゲージ
 
 - VIDEO: 平均 1.0（1件）
-- CAROUSEL_ALBUM: 平均 0.0（2件）
+- CAROUSEL_ALBUM: 平均 0.0（3件）
 
 ## 次アクション(自動提案)
 - リール(平均1.0) ≥ カルーセル(平均0.0) → **リール比率を上げる**。
