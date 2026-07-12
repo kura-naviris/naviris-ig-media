@@ -1,13 +1,13 @@
 {
   "used": [
-    "r_fear1",
-    "c_type",
-    "r_ai1",
-    "r_uni1",
-    "r_ceo1",
-    "r_real1",
-    "c_naze",
     "c_gakuchika",
+    "c_naze",
+    "r_real1",
+    "r_uni1",
+    "r_fear1",
+    "r_ceo1",
+    "r_ai1",
+    "c_type",
     "r_men1"
   ]
 }
